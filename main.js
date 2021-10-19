@@ -45,3 +45,43 @@ const juanita = new Student(
         "Creacion de personajes",
     ],
 );
+
+
+//Prototipos con la sintaxis de Clases
+class Student2 {
+    constructor({
+        //Si tenemos muchos campos enviamos un solo objeto
+        name,
+        age,
+        //Podemos valores por defecto
+        cursosAprobados = [],
+    }) {
+        this.name = name;
+        this.age = age;
+        this.cursosAprobados = cursosAprobados;
+    }
+
+    aprobarCurso(nuevoCursito){
+        this.cursosAprobados.push(nuevoCursito);
+    }
+}
+
+
+//Creamos la instancia
+const miguelito = new Student2({
+    //Cuando tenemos muchos campos enviamos un solo objeto
+    name: "Miguel",
+    age:28,
+    cursosAprobados: [
+         "Curso de Analisis de Negocios",
+        "Principios de Visualización de Datos",
+    ],
+}
+
+    // "Miguel",
+    // 28,
+    // [
+    //     "Curso de Analisis de Negocios",
+    //     "Principios de Visualización de Datos",
+    // ],
+);
