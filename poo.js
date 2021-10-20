@@ -95,6 +95,30 @@ class Student {
     };
 };
 
+
+
+
+//ABSTRACCIÓN.
+
+class Course {
+    constructor({
+        name,
+        classes = [],
+    }) {
+        this.name = name;
+        this.classes = classes;
+    }
+}
+
+const cursoProgBasica = new Course({
+    name: "Curso de programacion basica",
+},
+);
+
+const cursoDefinitivoHTML = new Course({
+    name: "Curso Practico de HTML y CSS",
+},
+);
 class LearningPath {
     constructor({
         name,
@@ -108,9 +132,11 @@ class LearningPath {
 const escuelaWeb = new LearningPath({
     name: "Escuela de Desarrollo Web",
     courses: [
+        cursoProgBasica,
         cursoJS,
         cursoReact,
         cursoNextJS,
+        cursoDefinitivoHTML,
     ],
 });
 
@@ -123,17 +149,89 @@ const escuelaData = new LearningPath({
     ],
 });
 
+const escuelaVgs = new LearningPath({
+    name: "Escuela de Videojuegos",
+    courses: [
+        cursoProgBasica,
+        cursoUnity,
+        CursoEngine,
+        CursoExcel,
+        cursoDefinitivoHTML,
+    ],
+});
+
+class ClassesForCourse{
+    constructor({
+        name,
+        comments = [],
+        questions = [],
+        resourses = [],
+        relatedClasses = [],
+        nextClass, 
+        pastClass
+    })
+    {
+    this.name = name,
+    this.comments = comments,
+    this.questions = questions,
+    this.resourses = resourses,
+    this.relatedClasses = relatedClasses
+    this.nextClass = nextClass
+    this.pastClass = pastClass
+    }
+}
+
+const claseQueEsHTML = ({
+    name: "¿Que es HTML/CSS/JS"
+})
+
+const clasePrimerLineaCodigo = ({
+    name: "Mi Primer Linea de Código",
+    nextClass: claseQueEsHTML
+})
+
+
+class Course{
+    constructor({
+        name,
+        classes = [],
+    }){
+        this.name = name;
+        this.classes = classes;
+    }
+} 
+
+const cursoProgBasica = new Course({
+    name: "Curso Gratis de Programación Básica",
+    classes: [
+        clasePrimerLineaCodigo,
+        claseQueEsHTML
+    ], 
+})
+
+
+
+
+
 
 const juan2 = new Student({
     name: 'Juan',
     username: 'Juandc',
     email: 'juandc@gmail.com',
-    twitter: 'juandc'
+    twitter: 'juandc',
+    learningPaths: [
+        escuelaVgs,
+        escuelaData,
+    ],
 });
 
 const miguelito2 = new Student({
     name: 'Miguelito',
     username: 'Migueldc',
     email: 'miguel@gmail.com',
-    instagram: 'miguel_dc'
+    instagram: 'miguel_dc',
+    learningPaths: [
+        escuelaWeb,
+        escuelaData,
+    ],
 });
