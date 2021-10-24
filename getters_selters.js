@@ -3,7 +3,7 @@ class Course {
         name,
         classes = [],
     }) {
-        //Con gion bajo pedimos que el atributo no sea llamado desde fuera
+        //Con guion bajo pedimos que el atributo no sea llamado desde fuera
         this._name = name;
         this.classes = classes;
     }
@@ -42,3 +42,39 @@ cursoProgBasica.changeName("Otro nombre");
 
 //Para llamar a name desde set
 cursoProgBasica.name ="Nuevo nombre"
+
+
+//RETO CON LA CLASE STUDENT Y EL PLATZI RANK
+class Student {
+    constructor({
+        name,
+        email,
+        username,
+        twitter = undefined,
+        instagram = undefined,
+        approvadesCourses = [],
+        learningPaths = [],
+        platziRank = 0,
+    }) {
+        this.name = name;
+        this.email = email;
+        this.username = username;
+        this.socialMedia = {
+            twitter,
+            instagram,
+        };
+        this.approvadesCourses = approvadesCourses;
+        this.learningPaths = learningPaths;
+        this._platziRank = platziRank;
+    }
+    get platziRank(){
+        return this._platziRank();
+    }
+    set platziRank (newPlatziRank) {
+        if (typeof newPlatziRank === "number"){
+            this._platziRank = newPlatziRank;
+        } else {
+            console.error("No puedes realizar esta cambio");
+        }
+    }
+};
